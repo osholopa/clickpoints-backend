@@ -4,12 +4,13 @@ const io = require("socket.io")(http)
 const cors = require("cors")
 
 app.use(cors())
+app.use(express.static("build"))
 
 let game = {
   clicks: 0
 }
 
-app.get("/", (request, response) => {
+app.get("/clickpoints", (request, response) => {
   response.send(`Counter value: ${game.clicks}`)
 })
 
