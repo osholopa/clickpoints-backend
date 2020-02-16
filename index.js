@@ -1,4 +1,5 @@
-const app = require("express")()
+const express = require("express")
+const app = express()
 const http = require("http").createServer(app)
 const io = require("socket.io")(http)
 const cors = require("cors")
@@ -10,7 +11,7 @@ let game = {
   clicks: 0
 }
 
-app.get("/clickpoints", (request, response) => {
+app.get("/", (request, response) => {
   response.send(`Counter value: ${game.clicks}`)
 })
 
@@ -23,7 +24,6 @@ io.on("connection", socket => {
     game.clicks++
 
     socket.emit("nextWin", { nextWin: 10 - (game.clicks % 10) })
-    console.log(`Next win: ${10 - (game.clicks % 10)}`)
 
     console.log(`Clicks: ${game.clicks}`)
     if (game.clicks % 500 === 0) {
