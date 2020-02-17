@@ -26,22 +26,30 @@ const getWin = clicks => {
   return 0
 }
 
-
+const calculateNextWin = clicks => {
+  return 10 - (game.clicks % 10)
+}
 
 io.on("connection", socket => {
   console.log("Client connected")
-  socket.on("disconnect", () => {
-    console.log("Client disconnected")
+
+  socket.on("getNextWin", () => {
+    socket.emit("nextWin", { nextWin: calculateNextWin(game.clicks) })
   })
+
   socket.on("click", () => {
     game.clicks++
-    socket.emit("nextWin", { nextWin: 10 - (game.clicks % 10) })
+    socket.emit("nextWin", { nextWin: calculateNextWin(game.clicks) })
     const calculateWin = getWin(game.clicks)
     const gainedPoints = calculateWin > 0 ? true : false
     if (gainedPoints) {
       socket.emit("win", { points: getWin(game.clicks) })
     }
     console.log(`Clicks: ${game.clicks}`)
+  })
+
+  socket.on("disconnect", () => {
+    console.log("Client disconnected")
   })
 })
 
