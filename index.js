@@ -15,6 +15,19 @@ app.get("/", (request, response) => {
   response.send(`Counter value: ${game.clicks}`)
 })
 
+const getWin = clicks => {
+  if (clicks % 500 === 0) {
+    return 250
+  } else if (clicks % 100 === 0) {
+    return 40
+  } else if (clicks % 10 === 0) {
+    return 5
+  }
+  return 0
+}
+
+
+
 io.on("connection", socket => {
   console.log("Client connected")
   socket.on("disconnect", () => {
@@ -22,20 +35,13 @@ io.on("connection", socket => {
   })
   socket.on("click", () => {
     game.clicks++
-
     socket.emit("nextWin", { nextWin: 10 - (game.clicks % 10) })
-
-    console.log(`Clicks: ${game.clicks}`)
-    if (game.clicks % 500 === 0) {
-      console.log("250 points prize")
-      socket.emit("win", { points: 250 })
-    } else if (game.clicks % 100 === 0) {
-      console.log("40 points prize")
-      socket.emit("win", { points: 40 })
-    } else if (game.clicks % 10 === 0) {
-      console.log("5 points prize")
-      socket.emit("win", { points: 5 })
+    const calculateWin = getWin(game.clicks)
+    const gainedPoints = calculateWin > 0 ? true : false
+    if (gainedPoints) {
+      socket.emit("win", { points: getWin(game.clicks) })
     }
+    console.log(`Clicks: ${game.clicks}`)
   })
 })
 
