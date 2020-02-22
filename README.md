@@ -12,6 +12,6 @@ Windows/Mac users, but on Linux the steps are very similar.
 3. Clone this repository by typing `git clone https://github.com/osholopa/clickpoints-backend.git` into the console. Run the command by pressing Enter. Insert your Github credentials if required.
 4. Move to the created folder by typing `cd clickpoints-backend`.
 5. Install project dependencies with the command `npm install`.
-6. Run the command `npm start`.
+6. Run the command `npm run watch`.
 7. A local server should start listening on port 3001.
 8. If you haven't yet, set-up the [front-end](https://github.com/osholopa/clickpoints-frontend).
