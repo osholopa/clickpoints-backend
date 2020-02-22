@@ -8,7 +8,7 @@ The [front-end](https://github.com/osholopa/clickpoints-frontend) is in a separa
 Follow these instructions to get the server running locally. These instructions are intended for 
 Windows/Mac users, but on Linux the steps are very similar.
 1. Ensure that you have [Git](https://git-scm.com/downloads), [Node and npm](https://nodejs.org/en/download/) installed
-2. Open Git Bash/Terminal in the directory where you want the project to be saved. Clone the front-end repo to the same directory later.
+2. Open Git Bash/Terminal in the directory where you want the project to be saved.
 3. Clone this repository by typing `git clone https://github.com/osholopa/clickpoints-backend.git` into the console. Run the command by pressing Enter. Insert your Github credentials if required.
 4. Move to the created folder by typing `cd clickpoints-backend`.
 5. Install project dependencies with the command `npm install`.
