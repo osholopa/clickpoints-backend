@@ -2,9 +2,9 @@
 This the back-end of a simple multiplayer button click game made with [express](https://expressjs.com/) and [socket.io](https://socket.io/).
 The [front-end](https://github.com/osholopa/clickpoints-frontend) is in a separate repository.
 
-####Note: In order to run the scripts properly, this repository needs to be cloned inside the same directory as the [front-end](https://github.com/osholopa/clickpoints-frontend)
+#### Note: In order to run the scripts defined in package.json properly, this repository needs to be cloned inside the same directory as the [front-end](https://github.com/osholopa/clickpoints-frontend)
 
-##To install
+## Installation
 Follow these instructions to get the server running locally. These instructions are intended for 
 Windows/Mac users, but on Linux the steps are very similar.
 1. Ensure that you have [Git](https://git-scm.com/downloads), [Node and npm](https://nodejs.org/en/download/) installed
