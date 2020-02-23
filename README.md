@@ -1,4 +1,7 @@
 # Clickpoints Back-end
+
+The whole app is hosted publicly in [https://cryptic-mountain-25746.herokuapp.com/](https://cryptic-mountain-25746.herokuapp.com/)
+
 This the back-end of a simple multiplayer button click game made with [express](https://expressjs.com/) and [socket.io](https://socket.io/).
 The [front-end](https://github.com/osholopa/clickpoints-frontend) is in a separate repository.
 
